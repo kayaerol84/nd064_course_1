@@ -1,11 +1,45 @@
 ## Docker commands used to build the application 
-# TODO: insert the docker build command
+docker build -t techtrends .
 
 ## Docker commands used to run the application
-# TODO: insert the docker run command
+docker run -d -p 7111:3111 techtrends
 
 ## Docker commands used to get the application logs
-# TODO: insert the docker logs command
+docker logs 509
 
 ## Logs from the container running the TechTrends application
-# TODO: paste logs from the Docker container 
+
+➜  techtrends git:(main) ✗ docker logs eb8
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 759-884-138
+[2022-03-10 23:37:22,196] DEBUG in app: About page request successfull
+172.17.0.1 - - [10/Mar/2022 23:37:22] "GET /about HTTP/1.1" 200 -
+172.17.0.1 - - [10/Mar/2022 23:37:22] "GET /static/css/main.css HTTP/1.1" 304 -
+172.17.0.1 - - [10/Mar/2022 23:37:24] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [10/Mar/2022 23:37:24] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-03-10 23:37:26,205] INFO in app: Article 1 retrieved!
+172.17.0.1 - - [10/Mar/2022 23:37:26] "GET /1 HTTP/1.1" 200 -
+172.17.0.1 - - [10/Mar/2022 23:37:26] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-03-10 23:37:27,700] INFO in app: Article 2 retrieved!
+172.17.0.1 - - [10/Mar/2022 23:37:27] "GET /2 HTTP/1.1" 200 -
+172.17.0.1 - - [10/Mar/2022 23:37:27] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-03-10 23:37:30,002] INFO in app: Article 5 retrieved!
+172.17.0.1 - - [10/Mar/2022 23:37:30] "GET /5 HTTP/1.1" 200 -
+172.17.0.1 - - [10/Mar/2022 23:37:30] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-03-10 23:37:38,422] INFO in app: Status request successfull
+[2022-03-10 23:37:38,422] DEBUG in app: DEBUG message
+172.17.0.1 - - [10/Mar/2022 23:37:38] "GET /healthz HTTP/1.1" 200 -
+[2022-03-10 23:37:41,182] DEBUG in app: Metrics request successful
+172.17.0.1 - - [10/Mar/2022 23:37:41] "GET /metrics HTTP/1.1" 200 -
+[2022-03-10 23:37:42,827] DEBUG in app: About page request successfull
+172.17.0.1 - - [10/Mar/2022 23:37:42] "GET /about HTTP/1.1" 200 -
+172.17.0.1 - - [10/Mar/2022 23:37:42] "GET /static/css/main.css HTTP/1.1" 304 -
