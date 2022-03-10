@@ -1,0 +1,35 @@
+INFO:werkzeug: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+INFO:app:Status request successfull
+DEBUG:app:DEBUG message
+INFO:werkzeug:127.0.0.1 - - [10/Mar/2022 23:45:34] "GET /healthz HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [10/Mar/2022 23:45:42] "GET / HTTP/1.1" 200 -
+DEBUG:app:About page request successfull
+INFO:werkzeug:127.0.0.1 - - [10/Mar/2022 23:45:48] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+DEBUG:app:About page request successfull
+INFO:werkzeug:127.0.0.1 - - [10/Mar/2022 23:53:44] "GET /about HTTP/1.1" 200 -
+DEBUG:app:Metrics request successful
+INFO:werkzeug:127.0.0.1 - - [10/Mar/2022 23:53:55] "GET /metrics HTTP/1.1" 200 -
+INFO:app:Article <sqlite3.Row object at 0x10b5cad10> retrieved!
+INFO:werkzeug:127.0.0.1 - - [10/Mar/2022 23:53:59] "GET /1 HTTP/1.1" 200 -
+INFO:app:Article <sqlite3.Row object at 0x10b5caa70> retrieved!
+INFO:werkzeug:127.0.0.1 - - [10/Mar/2022 23:54:01] "GET /2 HTTP/1.1" 200 -
+INFO:app:Article <sqlite3.Row object at 0x10b5cad50> retrieved!
+INFO:werkzeug:127.0.0.1 - - [10/Mar/2022 23:54:03] "GET /3 HTTP/1.1" 200 -
+DEBUG:app:Metrics request successful
+INFO:werkzeug:127.0.0.1 - - [10/Mar/2022 23:54:09] "GET /metrics HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.178.33:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [11/Mar/2022 00:23:09] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Mar/2022 00:23:09] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Mar/2022 00:23:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+DEBUG:app:About page request successfull
+INFO:werkzeug:127.0.0.1 - - [11/Mar/2022 00:23:13] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Mar/2022 00:23:13] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:app:Article <sqlite3.Row object at 0x1085ebb30> retrieved!
+INFO:werkzeug:127.0.0.1 - - [11/Mar/2022 00:23:15] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Mar/2022 00:23:15] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+DEBUG:app:Metrics request successful
+INFO:werkzeug:127.0.0.1 - - [11/Mar/2022 00:23:18] "GET /metrics HTTP/1.1" 200 -
