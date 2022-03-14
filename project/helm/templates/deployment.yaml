@@ -26,16 +26,16 @@ spec:
       containers:
       - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         ports:
-          - containerPort: {{ .Values.containerPort }}:3111
+          - containerPort: {{ .Values.containerPort }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         name: techtrends
         livenessProbe:
           httpGet:
             path: {{ .Values.livenessProbePath }}
-            port: {{ .Values.containerPort }}:3111
+            port: {{ .Values.containerPort }}
         readinessProbe:
           httpGet:
             path: {{ .Values.livenessProbePath }}
-            port: {{ .Values.containerPort }}:3111
+            port: {{ .Values.containerPort }}
         resources:
 {{ toYaml .Values.resources | indent 12 }}
