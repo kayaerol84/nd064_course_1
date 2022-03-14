@@ -92,14 +92,24 @@ def create():
 
 @app.route('/healthz')
 def healthcheck():
-    response = app.response_class(
-        response=json.dumps({"result": "OK - healthy"}),
-        status=200,
-        mimetype='application/json'
-    )
-    app.logger.info('Status request successfull')
-    app.logger.debug('DEBUG message')
-    return response
+    posts = getPosts()
+    if len(posts) > 0:
+        response = app.response_class(
+            response=json.dumps({"result": "OK - healthy"}),
+            status=200,
+            mimetype='application/json'
+        )
+        app.logger.info('Healthz request successfull')
+        return response
+    else:
+        response = app.response_class(
+            response=json.dumps({"result": "ERROR - unhealthy"}),
+            status=500,
+            mimetype='application/json'
+        )
+        app.logger.info('Healthz request successfull - but service is not healthy')
+        app.logger.debug('DEBUG message')
+        return response
 
 
 @app.route('/metrics')
