@@ -3,6 +3,10 @@ import sqlite3
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
 import logging
+import sys
+
+stdout_fileno = sys.stdout
+stderr_fileno = sys.stderr
 
 # Total amount of connections to the database
 connectionCount = 0
@@ -54,16 +58,19 @@ def post(post_id):
     post = get_post(post_id)
     if post is None:
         app.logger.debug('A non-existing article is accessed and a 404 page is returned')
+        stderr_fileno.write('A non-existing article is accessed and a 404 page is returned\n')
         return render_template('404.html'), 404
     else:
         app.logger.info('Article %s retrieved!', post_id)
+        stdout_fileno.write('Article ' + str(post_id) + ' retrieved!\n')
         return render_template('post.html', post=post)
 
 
 # Define the About Us page
 @app.route('/about')
 def about():
-    app.logger.debug('About page request successfull')
+    app.logger.debug('About page request successful')
+    stdout_fileno.write('About page request successful\n')
     return render_template('about.html')
 
 
@@ -84,6 +91,7 @@ def create():
             connection.close()
 
             app.logger.debug('A new article is created')
+            stdout_fileno.write('A new article is created\n')
 
             return redirect(url_for('index'))
 
@@ -99,7 +107,7 @@ def healthcheck():
             status=200,
             mimetype='application/json'
         )
-        app.logger.info('Healthz request successfull')
+        app.logger.info('Healthz request successful')
         return response
     else:
         response = app.response_class(
@@ -107,7 +115,8 @@ def healthcheck():
             status=500,
             mimetype='application/json'
         )
-        app.logger.info('Healthz request successfull - but service is not healthy')
+        app.logger.info('Healthz request successful - but service is not healthy')
+        stderr_fileno.write('Healthz request successful - but service is not healthy!\n')
         app.logger.debug('DEBUG message')
         return response
 
@@ -127,6 +136,6 @@ def metrics():
 
 # start the application on port 3111
 if __name__ == "__main__":
-    #logging.basicConfig(filename='app.log', level=logging.DEBUG)
+    # logging.basicConfig(filename='app.log', level=logging.DEBUG)
     app.config['DEBUG'] = True
     app.run(host='0.0.0.0', port='3111')
