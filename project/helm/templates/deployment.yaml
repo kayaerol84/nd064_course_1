@@ -31,11 +31,11 @@ spec:
         name: techtrends
         livenessProbe:
           httpGet:
-            path: {{ .Values.livenessProbePath }}
-            port: {{ .Values.containerPort }}
+            path: {{ .Values.livenessProbe.path }}
+            port: {{ .Values.livenessProbe.port }}
         readinessProbe:
           httpGet:
-            path: {{ .Values.livenessProbePath }}
-            port: {{ .Values.containerPort }}
+            path: {{ .Values.readinessProbe.path }}
+            port: {{ .Values.readinessProbe.port }}
         resources:
 {{ toYaml .Values.resources | indent 12 }}

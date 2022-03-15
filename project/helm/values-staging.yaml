@@ -23,6 +23,3 @@ resources:
     memory: 128Mi
 
 containerPort: 3111
-
-livenessProbePath: /healthz
-readinessProbePath: /healthz
